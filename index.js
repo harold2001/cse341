@@ -3,10 +3,12 @@ import { PORT } from './config/config.js';
 import { validateCORS } from './middleware/middleware.js';
 import { initDb } from './database/connect.js';
 import routes from './routes/index.js';
+import bodyParser from 'body-parser';
 
 const app = express();
 
 app.use(express.json());
+app.use(bodyParser.json());
 app.use(validateCORS);
 app.use('/', routes);
 
